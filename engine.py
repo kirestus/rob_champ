@@ -14,8 +14,8 @@ def sysclear():
 #Sets the current scene Number and State Number for each scene
 sceneNum = 01
 stateNum = 01
-#create a room named confhall and set the state of it to room 01 state 01
-room_confhall = room.Room(sceneNum,stateNum)
+#create a room named hotelroom and set the state of it to room 01 state 01
+room_hotelroom = room.Room(sceneNum,stateNum)
 room_hallway = room.Room(02,01)
 #updates the list of people whom the player may speak with in the TalkTo script
 talkto = TalkTo.TalkTo(sceneNum)
@@ -31,45 +31,49 @@ rungame =1;
 def DrawMenu():
 	print "/////////////////////"
 	print "// 1.) Look Around //"
-	print "// 2.) Use Item    //"
-	print "// 3.) Talk to     //"
-	print "// 4.) Go to       //"
-	print "// 5.) Pick Up     //"
-	print "// 6.) Inventory   //"
+	print "// 2.) Look At     //"
+	print "// 3.) Use Item    //"
+	print "// 4.) Talk to     //"
+	print "// 5.) Go to       //"
+	print "// 6.) Pick Up     //"
+	print "// 7.) Inventory   //"
 	print "/////////////////////" 
 	
 
 def SetRoom(number):
 	if number == 1:
-		return room_confhall
+		return room_hotelroom
 	if number == 2:
 		return room_hallway
 		
 #current room set
 current_room = SetRoom(1)		
+current_room.PrintIntro()
 
 #mainloop the game runs in	
 while rungame == 1:
 	#update room may change out in favor of literally creating new rooms with classes
-	room_confhall.SetRoom(sceneNum, stateNum)
+	room_hotelroom.SetRoom(sceneNum, stateNum)
 	DrawMenu()
 	choice = raw_input ("> ")
 	
 	if choice == '1':
 		current_room.PrintRoom()
 	elif choice == '2':
-		player.UseItem()
+		current_room.LookList()
 	elif choice == '3':
+		player.UseItem()
+	elif choice == '4':
 		whom = raw_input("Talk to whom?> ")
 		talkto.TalkToWhom(whom)
-	elif choice == '4':
+	elif choice == '5':
 		if room_confhall.GoTo(sceneNum) == 1:
 			sceneNum += 1;
 			print sceneNum
-	elif choice == '5':
+	elif choice == '6':
 		addItem = raw_input ("What do you want to pick up?> ")
 		player.AddItem(addItem)
-	elif choice == '6':
+	elif choice == '7':
 		player.ListItems()
 	else:
 		rungame = 0
