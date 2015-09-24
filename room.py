@@ -23,17 +23,31 @@ class Room(object):
 			"to discretely have a nap. The door to the hotel room has been splintered. It looks as if the\n"
 			"digital card lock has exploded"
 			)
-			self._options = options = ['N','S']
+			self._options = options = ['N']
 			self._ifNorth = "You Proceed through an open door to the north"
-			self._ifSouth = "You try the door to the south but it is locked"
-			self._lookList = ['Hands','']
+			self._lookList = ['Hands','surroundings','windows','black building','World Trade Center','mirrors','digital card lock','door','glass','bed','ticket']
+			self._pickupList = ['Ticket','Glass']
+			self._useList = ['bed','door']
 
-		#ROOM 2 the Long Hallway
+
+
+
+		#ROOM 2 the hallway
 		if number == 2:
-			self._roomName = "Long Hallway"
-			self._roomDesc = ("A long boring hallway"
-			"\nThere are exits to the East and South")
-			self._options = options = ['E','S']
+			self._roomName = "The Hallway"
+			self._roomIntro = (
+			"The doors to all the other rooms on the floor have suffered the same fate as the one you just\n"
+			"passed through. At one end of the hallway is an elevator and a stairwell, at the other there\n"
+			"appears to be a body."
+			)
+			self._roomDesc = (
+			"The doors to all the other rooms on the floor have suffered the same fate as the one you just\n"
+			"passed through. At one end of the hallway is an elevator and a stairwell, at the other there\n"
+			"appears to be a body."
+			
+			"\nThere are exits to the South")
+			self._options = options = ['S']
+			self._ifSouth = "You Proceed South back to the Hotel Room"
 			
 		return number
 	
