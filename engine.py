@@ -1,4 +1,5 @@
 import room
+import lookAt
 import inventory
 import TalkTo
 import os
@@ -41,20 +42,33 @@ def DrawMenu():
 	
 
 def SetRoom(number):
-	if number == 1:
+	if number == 1 or number == "hotel":
 		return room_hotelroom
-	if number == 2:
-		current_room.SetRoom(_sceneNum, _stateNum)
+	if number == 2 or number == "hallway":
 		return room_hallway
 		
 #current room set
 current_room = SetRoom(1)		
 
+
+#overly complex solution to changing the rooms in the engine
+def ChangeRoom(_sceneNum,current_room):
+	#This is where it gets complicated in trying to show what rooms you can travel to from what 
+	#if in hotel room
+	goto = current_room.GoTo(_sceneNum)
+	if goto == 1 and current_room == SetRoom('hotel'):
+		current_room = SetRoom(2)
+		_sceneNum = 2
+	#elif
+	elif goto == 3 and current_room == SetRoom('hallway'):
+		current_room = SetRoom(1)
+		_sceneNum = 1
+	return (current_room, _sceneNum)
+
+
 #mainloop the game runs in	
 while rungame == 1:
-	print _sceneNum
 	current_room = SetRoom(_sceneNum)
-	print current_room
 	#update room may change out in favor of literally creating new rooms with classes
 	current_room.SetRoom(_sceneNum, _stateNum)
 	current_room.PrintIntro()
@@ -71,16 +85,9 @@ while rungame == 1:
 		whom = raw_input("Talk to whom?> ")
 		talkto.TalkToWhom(whom)
 	elif choice == '5':
-		#if in hotel room
-		goto = current_room.GoTo(_sceneNum)
-		if goto == 1:
-			current_room = SetRoom(2)
-			_sceneNum = 2
-		#elif
-		elif goto == 2:
-			print "BINGO!"
-			current_room = SetRoom(1)
-			_sceneNum = 1
+		roomvars = current_room = ChangeRoom(_sceneNum,current_room)
+		current_room = roomvars[0]
+		_sceneNum = roomvars[1]
 	elif choice == '6':
 		addItem = raw_input ("What do you want to pick up?> ")
 		player.AddItem(addItem)
@@ -90,4 +97,8 @@ while rungame == 1:
 		rungame = 0
 	print 
 	raw_input ("Press [ENTER] to continue")
-	sysclear()	
+	sysclear()
+	
+	
+	
+

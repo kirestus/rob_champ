@@ -1,3 +1,4 @@
+import room
 class LookAt(object):
 	
 	def __init__(self,scene):	

@@ -48,31 +48,36 @@ class Room(object):
 			"\nThere are exits to the South")
 			self._options = options = ['S']
 			self._ifSouth = "You Proceed South back to the Hotel Room"
+			self._lookList = ["body",'cable','discman','elevator']
+			self._pickupList = ['uniform','body','discman']
 			
 		return number
 	
 	def PrintIntro(self):
+		print "%s:"%self._roomName
 		print self._roomIntro
 			
 	def PrintRoom(self):
-		print "%s:"%self._roomName
 		print self._roomDesc		
 			
 	
 	def GoTo(self, num):
 		pdir = self._options
 		print "possible options %r" %pdir
-		choice = raw_input("Go Where? N,E,S,W >")
+		choice = raw_input("Go Where? N,E,S,W > ")
 		for direction in pdir:
 			if direction == choice:
 				if direction == "N":
 					print self._ifNorth
+					return 1
 				elif direction == "E":
 					print self._ifEast
+					return 2
 				elif direction == "S":
 					print self._ifSouth
+					return 3
 				elif direction == "W":
 					print self._ifWest
-				return 1
+					return 4
 		print "There is no %s exit"%choice
 		return 0
