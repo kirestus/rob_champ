@@ -28,6 +28,8 @@ class Room(object):
 			self._lookList = ['Hands','surroundings','windows','black building','World Trade Center','mirrors','digital card lock','door','glass','bed','ticket']
 			self._pickupList = ['Ticket','Glass']
 			self._useList = ['bed','door']
+			self._talkList = ["GodMode","Rob"]
+
 
 
 
@@ -58,7 +60,10 @@ class Room(object):
 		print self._roomIntro
 			
 	def PrintRoom(self):
-		print self._roomDesc		
+		print self._roomDesc	
+		
+	def GetLookList(self):
+		return self._lookList	
 			
 	
 	def GoTo(self, num):

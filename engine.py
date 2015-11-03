@@ -19,7 +19,7 @@ room_hotelroom = room.Room(_sceneNum,_stateNum)
 room_hallway = room.Room(02,01)
 #updates the list of people whom the player may speak with in the TalkTo script
 talkto = TalkTo.TalkTo(_sceneNum)
-#creates an inventory for the player named player and ads the items cookbook and party hat
+#creates an inventory for the player named player and adds the items cookbook and party hat
 player = inventory.Inventory()
 player.AddItem("Party Hat")
 player.AddItem("Cookbook")
@@ -78,7 +78,7 @@ while rungame == 1:
 	if choice == '1':
 		current_room.PrintRoom()
 	elif choice == '2':
-		current_room.LookList()
+		print current_room.GetLookList()
 	elif choice == '3':
 		player.UseItem()
 	elif choice == '4':
