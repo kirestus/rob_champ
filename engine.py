@@ -78,7 +78,7 @@ while rungame == 1:
 	if choice == '1':
 		current_room.PrintRoom()
 	elif choice == '2':
-		print current_room.GetLookList()
+		print lookAt.LookAtRoom(current_room.GetLookList())
 	elif choice == '3':
 		player.UseItem()
 	elif choice == '4':

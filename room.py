@@ -25,7 +25,7 @@ class Room(object):
 			)
 			self._options = options = ['N']
 			self._ifNorth = "You Proceed through an open door to the north"
-			self._lookList = ['Hands','surroundings','windows','black building','World Trade Center','mirrors','digital card lock','door','glass','bed','ticket']
+			self._lookList = ['hands','surroundings','windows','black building','world trade center','mirrors','digital card lock','door','glass','bed','ticket']
 			self._pickupList = ['Ticket','Glass']
 			self._useList = ['bed','door']
 			self._talkList = ["GodMode","Rob"]
