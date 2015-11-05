@@ -1,5 +1,6 @@
 import room
 import lookAt
+import pickUp
 import inventory
 import TalkTo
 import os
@@ -78,7 +79,7 @@ while rungame == 1:
 	if choice == '1':
 		current_room.PrintRoom()
 	elif choice == '2':
-		print lookAt.LookAtRoom(current_room.GetLookList())
+		lookAt.LookInit(current_room.GetLookList(),_sceneNum)
 	elif choice == '3':
 		player.UseItem()
 	elif choice == '4':
@@ -89,8 +90,7 @@ while rungame == 1:
 		current_room = roomvars[0]
 		_sceneNum = roomvars[1]
 	elif choice == '6':
-		addItem = raw_input ("What do you want to pick up?> ")
-		player.AddItem(addItem)
+		player.AddItem(pickUp.PickupInit(current_room.GetPickUpList(),_sceneNum))
 	elif choice == '7':
 		player.ListItems()
 	elif choice == '0':

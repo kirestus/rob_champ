@@ -5,7 +5,9 @@ class Inventory(object):
 		
 	#add an item that has name	
 	def AddItem(self, name):
-		self._itemlist.append(name)
+		#make sure that what is being picked up is an item
+		if name != "nul":
+			self._itemlist.append(name)
 	
 	#List all of the items 	
 	def ListItems(self):

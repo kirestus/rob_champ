@@ -26,7 +26,7 @@ class Room(object):
 			self._options = options = ['N']
 			self._ifNorth = "You Proceed through an open door to the north"
 			self._lookList = ['hands','surroundings','windows','black building','world trade center','mirrors','digital card lock','door','glass','bed','ticket']
-			self._pickupList = ['Ticket','Glass']
+			self._pickupList = ['ticket','glass']
 			self._useList = ['bed','door']
 			self._talkList = ["GodMode","Rob"]
 
@@ -50,7 +50,7 @@ class Room(object):
 			"\nThere are exits to the South")
 			self._options = options = ['S']
 			self._ifSouth = "You Proceed South back to the Hotel Room"
-			self._lookList = ["body",'cable','discman','elevator']
+			self._lookList = ['body','cable','discman','elevator']
 			self._pickupList = ['uniform','body','discman']
 			
 		return number
@@ -64,6 +64,9 @@ class Room(object):
 		
 	def GetLookList(self):
 		return self._lookList	
+	
+	def GetPickUpList(self):
+		return self._pickupList
 			
 	
 	def GoTo(self, num):
