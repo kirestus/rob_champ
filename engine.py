@@ -15,9 +15,17 @@ def sysclear():
 #Sets the current scene Number and State Number for each scene
 _sceneNum = 01
 _stateNum = 01
-#create a room named hotelroom and set the state of it to room 01 state 01
+#create an entity of all the specific rooms that we will be needing setting their state and number
 room_hotelroom = room.Room(_sceneNum,_stateNum)
 room_hallway = room.Room(02,01)
+room_ballroom = room.Room(03,01)
+room_restaurant = room.Room(04,01)
+room_parkade = room.Room(05,01)
+room_lobby = room.Room(06,01)
+room_street = room.Room(07,01)
+room_goreindustries = room.Room(20,01)
+
+
 #updates the list of people whom the player may speak with in the TalkTo script
 talkto = TalkTo.TalkTo(_sceneNum)
 #creates an inventory for the player named player and adds the items cookbook and party hat
@@ -41,7 +49,7 @@ def DrawMenu():
 	print "// 0.) Exit        //"
 	print "/////////////////////" 
 	
-
+#this function simply returns the propper room depending on the number it is fed
 def SetRoom(number):
 	if number == 1 or number == "hotel":
 		return room_hotelroom
@@ -60,7 +68,6 @@ def ChangeRoom(_sceneNum,current_room):
 	if goto == 1 and current_room == SetRoom('hotel'):
 		current_room = SetRoom(2)
 		_sceneNum = 2
-	#elif
 	elif goto == 3 and current_room == SetRoom('hallway'):
 		current_room = SetRoom(1)
 		_sceneNum = 1
@@ -75,24 +82,30 @@ while rungame == 1:
 	current_room.PrintIntro()
 	DrawMenu()
 	choice = raw_input ("> ")
-	
+	#if you choose 1 this will print the room info out
 	if choice == '1':
 		current_room.PrintRoom()
+	#if you choose 2 this will call the LookInit fucntion from the lookAt module sending the looklist from the correct scene 
 	elif choice == '2':
 		lookAt.LookInit(current_room.GetLookList(),_sceneNum)
+	#if you choose 3 the run the UseItem function in the inventory class
 	elif choice == '3':
 		player.UseItem()
+	#if you choose 4 then you will talk to who you enter as a raw input. ///note[this doesnt need to be a class]
 	elif choice == '4':
 		whom = raw_input("Talk to whom?> ")
 		talkto.TalkToWhom(whom)
+	#if you choose 5 things get a bit more tricky, ill have to see what i did later
 	elif choice == '5':
 		roomvars = current_room = ChangeRoom(_sceneNum,current_room)
 		current_room = roomvars[0]
 		_sceneNum = roomvars[1]
 	elif choice == '6':
 		player.AddItem(pickUp.PickupInit(current_room.GetPickUpList(),_sceneNum))
+	#if player chooses 7 then you can go through a list of items in the player inventory
 	elif choice == '7':
 		player.ListItems()
+	#if player chooses 0 then stop the game loop causing the program to end
 	elif choice == '0':
 		rungame = 0
 	print 
