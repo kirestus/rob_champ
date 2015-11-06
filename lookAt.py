@@ -29,7 +29,7 @@ def PrintItemLook(lookatwhat, sceneNum):
 			"You notice that you are wearing a broken mechanical watch.\n" 
 			"The display still reads the exact time and date that it stopped: 12:00.\n"
 			"You are also wearing a diamond encrusted ring on your left ring finger.")
-		elif lookatwhat == "windows":
+		elif (lookatwhat == "windows") or (lookatwhat == "window"):
 			itemDesc = ("In the early dawn light you see the silhouettes of many skyscrapers.\n"
 			"You can tell by the distinctive shape of the World Trade Center twin towers that you are in New York City.\n"
 			"All the lights are out in the city.\n"
@@ -37,13 +37,13 @@ def PrintItemLook(lookatwhat, sceneNum):
 		elif lookatwhat == "black building":
 			itemDesc = ("A giant black monolith. You can see the Gore Industries logo on the side.\n"
 			"These are the people who make the internet.")
-		elif lookatwhat == "world trade center":
+		elif lookatwhat == ("world trade center") or (lookatwhat == "twin towers"):
 			itemDesc = "Built to last"
 			
 		elif lookatwhat == "mirrors":
 			itemDesc = "These are totally smashed"
 		
-		elif lookatwhat == "digital card lock":
+		elif (lookatwhat == "digital card lock") or (lookatwhat == "card lock"):
 			itemDesc = "There are only tiny bits of shrapnel remaining embedded in the walls."
 		
 		elif lookatwhat == "door":

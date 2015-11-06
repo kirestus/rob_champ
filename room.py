@@ -25,10 +25,10 @@ class Room(object):
 			)
 			self._options = options = ['N']
 			self._ifNorth = "You Proceed through an open door to the north"
-			self._lookList = ['hands','surroundings','windows','black building','world trade center','mirrors','digital card lock','door','glass','bed','ticket']
+			self._lookList = ['hands','surroundings','windows','window','black building','world trade center','twin towers','mirrors','digital card lock','card lock','door','glass','bed','ticket']
 			self._pickupList = ['ticket','glass']
 			self._useList = ['bed','door']
-			self._talkList = ["GodMode","Rob"]
+			self._talkList = ["godMode","rob"]
 
 
 
@@ -52,6 +52,7 @@ class Room(object):
 			self._ifSouth = "You Proceed South back to the Hotel Room"
 			self._lookList = ['body','cable','discman','elevator']
 			self._pickupList = ['uniform','body','discman']
+			self._useList = ['discman','elevator','elevator car','']
 			
 		return number
 	

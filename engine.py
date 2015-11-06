@@ -4,6 +4,7 @@ import pickUp
 import inventory
 import TalkTo
 import os
+import winsound
 
 #clears the sceen depending on what os the user is running
 def sysclear():
@@ -36,18 +37,30 @@ player.AddItem("Cookbook")
 sysclear()
 rungame =1;
 
+#make the computer beep 
+def Beep(number):
+	if number == 1:
+		Freq = 250 # Set Frequency To 2500 Hertz
+		Dur = 150 # Set Duration To 1000 ms == 1 second
+	elif number == 2:
+		Freq = 150 # Set Frequency To 2500 Hertz
+		Dur = 150 # Set Duration To 1000 ms == 1 second
+	winsound.Beep(Freq,Dur)
+
 #this function will draw the menu for the user	
 def DrawMenu():
 	print "/////////////////////"
 	print "// 1.) Look Around //"
 	print "// 2.) Look At     //"
-	print "// 3.) Use Item    //"
+	print "// 3.) Use         //"
 	print "// 4.) Talk to     //"
 	print "// 5.) Go to       //"
 	print "// 6.) Pick Up     //"
 	print "// 7.) Inventory   //"
+	print "// 8.) Use Item    //"
 	print "// 0.) Exit        //"
-	print "/////////////////////" 
+	print "/////////////////////"
+	Beep(1)
 	
 #this function simply returns the propper room depending on the number it is fed
 def SetRoom(number):
@@ -82,31 +95,45 @@ while rungame == 1:
 	current_room.PrintIntro()
 	DrawMenu()
 	choice = raw_input ("> ")
+	choice = choice.upper()
+	
 	#if you choose 1 this will print the room info out
-	if choice == '1':
+	if (choice == '1') or (choice == 'LOOK AROUND'):
 		current_room.PrintRoom()
+	
 	#if you choose 2 this will call the LookInit fucntion from the lookAt module sending the looklist from the correct scene 
-	elif choice == '2':
+	elif (choice == '2') or (choice == 'LOOK AT'):
 		lookAt.LookInit(current_room.GetLookList(),_sceneNum)
-	#if you choose 3 the run the UseItem function in the inventory class
-	elif choice == '3':
-		player.UseItem()
+	
+	#if you choose 3 this will use items in the environment
+	elif (choice == '3') or (choice == 'USE'):
+		print "coming soon"
+	
 	#if you choose 4 then you will talk to who you enter as a raw input. ///note[this doesnt need to be a class]
-	elif choice == '4':
+	elif (choice == '4') or (choice == 'TALK TO'):
 		whom = raw_input("Talk to whom?> ")
 		talkto.TalkToWhom(whom)
+	
 	#if you choose 5 things get a bit more tricky, ill have to see what i did later
-	elif choice == '5':
+	elif (choice == '5') or (choice == 'GO TO') or (choice =='GO'):
 		roomvars = current_room = ChangeRoom(_sceneNum,current_room)
 		current_room = roomvars[0]
 		_sceneNum = roomvars[1]
-	elif choice == '6':
+	
+	#the player can add an item to his inventory using this function
+	elif (choice == '6')or (choice == "PICKUP") or (choice== 'PICK UP'):
 		player.AddItem(pickUp.PickupInit(current_room.GetPickUpList(),_sceneNum))
+	
 	#if player chooses 7 then you can go through a list of items in the player inventory
-	elif choice == '7':
+	elif (choice == '7')or(choice == 'INVENTORY')or (choice == 'ITEMS'):
 		player.ListItems()
+	
+	#if you choose 8 the run the UseItem function in the inventory class
+	elif (choice == '8')or(choice == 'USE ITEM'):
+		player.UseItem()
+	
 	#if player chooses 0 then stop the game loop causing the program to end
-	elif choice == '0':
+	elif (choice == '0')or (choice == "EXIT"):
 		rungame = 0
 	print 
 	raw_input ("Press [ENTER] to continue")
