@@ -1,0 +1,3 @@
+room_id = 01
+room_name = 'Hotel Room'
+instance_name = 'room_hotelroom'
