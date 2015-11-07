@@ -1,3 +1,4 @@
+import inroom
 class Room(object):
 
     #This initiates the class taking the number sent and filling in the blanks

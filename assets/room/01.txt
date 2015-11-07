@@ -1,3 +1,8 @@
 room_id = 01
 room_name = 'Hotel Room'
 instance_name = 'room_hotelroom'
+looklist = ['hands','surroundings','windows','black building','world trade center','mirrors','digital card lock','door','glass','bed','ticket']
+pickuplist = ['ticket','glass']
+uselist = ['bed','door']
+talklist = ["godmode","rob"]
+exits = ['N']
