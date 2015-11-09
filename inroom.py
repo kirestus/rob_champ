@@ -23,24 +23,25 @@ def GetExitList(line):
 	return (line)
 	
 
-def LoadRoom(filename, roomid):
+def LoadRoom(filename, roomid, query):
 	txt = open(filename)
 	for line in txt:
-		if 'room_id' in line:
-			print GetRoomId(line)
-		elif 'room_name' in line:
-			print GetRoomName(line)
-		elif 'instance_name' in line:
-			print GetInstanceName(line)
-		elif 'looklist' in (line):
-			print GetLookList(line)
-		elif 'uselist' in (line):
-			print GetUseList(line)
-		elif 'talklist' in (line):
-			print GetTalkList(line)
-		elif 'exits' in (line):
-			print GetExitList(line)
+		if query in line:
+			if 'room_id' in line:
+				print GetRoomId(line)
+			elif 'room_name' in line:
+				print GetRoomName(line)
+			elif 'instance_name' in line:
+				print GetInstanceName(line)
+			elif 'looklist' in (line):
+				print GetLookList(line)
+			elif 'uselist' in (line):
+				print GetUseList(line)
+			elif 'talklist' in (line):
+				print GetTalkList(line)
+			elif 'exits' in (line):
+				print GetExitList(line)
 	
-LoadRoom('assets/room/01.txt', 01)
+LoadRoom('assets/room/01.txt', 01, room_id)
 
 
