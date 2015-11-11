@@ -1,47 +1,22 @@
 #this script will load a room from a text file and parse the valuble data for the engine
-
-
-def GetRoomId(line):
-	return (line)
 	
-def GetRoomName(line):
-	return (line)
-	
-def GetInstanceName(line):
-	return (line)
-	
-def GetLookList(line):
-	return (line)
-
-def GetUseList(line):
-	return (line)
-	
-def GetTalkList(line):
-	return (line)
-	
-def GetExitList(line):
-	return (line)
-	
-
+#take the filename roomid and a search query
 def LoadRoom(filename, roomid, query):
+	#open the filename you passed when calling the function
 	txt = open(filename)
 	for line in txt:
 		if query in line:
-			if 'room_id' in line:
-				print GetRoomId(line)
-			elif 'room_name' in line:
-				print GetRoomName(line)
-			elif 'instance_name' in line:
-				print GetInstanceName(line)
-			elif 'looklist' in (line):
-				print GetLookList(line)
-			elif 'uselist' in (line):
-				print GetUseList(line)
-			elif 'talklist' in (line):
-				print GetTalkList(line)
-			elif 'exits' in (line):
-				print GetExitList(line)
+			#this splits the line after the = so that we can just take the values we need
+			result = line.split('= ',1)[1]
+			resultList = result.split('^')
+			resultListItems = []
+			for i in resultList:
+				resultListItems.append(i);
+			if len(resultListItems)>1:
+				return resultListItems
+			else:
+				return result
+	return ("nul")
 	
-LoadRoom('assets/room/01.txt', 01, room_id)
 
 

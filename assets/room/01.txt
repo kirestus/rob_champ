@@ -1,8 +1,10 @@
 room_id = 01
-room_name = 'Hotel Room'
-instance_name = 'room_hotelroom'
-looklist = ['hands','surroundings','windows','black building','world trade center','mirrors','digital card lock','door','glass','bed','ticket']
-pickuplist = ['ticket','glass']
-uselist = ['bed','door']
-talklist = ["godmode","rob"]
-exits = ['N']
+room_name = Hotel Room
+instance_name = room_hotelroom
+looklist = hands^surroundings^windows^black building^world trade center^mirrors^digital card lock^door^glass^bed^ticket^
+pickuplist = ticket^glass^
+uselist = bed^door^
+talklist = godmode^rob^
+exits = N
+room_desc = You are in what appears to be a hotel room. It's nice, or would be without the scorch marks all over the walls and broken glass littering the floors from the shattered windows and mirrors. The bed is made up, but slightly disheveled - almost as if someone lay down on top to discretely have a nap. The door to the hotel room has been splintered. It looks as if the digital card lock has exploded
+room_intro = The first thing you are aware of before you even open your eyes is an intense ringing in your head. You bring your hands to your ears to try to block out the sound, but it does no good. Your hands come away sticky, presumably with blood. You smell smoke. You have no idea of your surroundings and no memory of how you got here.  

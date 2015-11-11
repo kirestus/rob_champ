@@ -1,10 +1,10 @@
 import room
+import inroom
 import lookAt
 import pickUp
 import inventory
 import TalkTo
 import os
-import winsound
 
 #clears the sceen depending on what os the user is running
 def sysclear():
@@ -60,7 +60,7 @@ def DrawMenu():
 	print "// 8.) Use Item    //"
 	print "// 0.) Exit        //"
 	print "/////////////////////"
-	Beep(1)
+	#Beep(1)
 	
 #this function simply returns the propper room depending on the number it is fed
 def SetRoom(number):
