@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<room 	id='01' 
-		room_name = 'Hotel Room'
-		instance_name = 'room_hotelroom'
-		room_desc ="You are in what appears to be a hotel room. It's nice, or would be without the scorch marks all over the walls and broken glass 
-		littering the floors from the shattered windows and mirrors. The bed is made up, but slightly disheveled - almost as if someone lay down on 
-		top to discretely have a nap. The door to the hotel room has been splintered. It looks as if the digital card lock has exploded"
-		room_intro = "The first thing you are aware of before you even open your eyes is an intense ringing in your head. You bring your hands to your ears to try to block out 
-		the sound, but it does no good. Your hands come away sticky, presumably with blood. You smell smoke. You have no idea of your surroundings and no memory of how you got here."
-		>
-	<exits north ='y' east ='n' south ='n' west = 'n' ifnorth ="You Proceed through an open door to the north"/>
-	<item name="hands" looklist="y"/>
-	<item name="surroundings" looklist="n"/>
-	<item name="windows" looklist="y"/>
-	<item name="black building" looklist="y"/>
-	<item name="world trade center" looklist="y"/>
-	<item name="mirrors" looklist="y"/>
-	<item name="digital card lock" looklist="y"/>
-	<item name="door" looklist="y"/>
-	<item name="glass" looklist="y"/>
-	<item name="bed" looklist="y"/>
-	<item name="ticket" looklist="y" pickuplist="y"/>
+<room id='01' 
+room_name = 'Hotel Room'
+instance_name = 'room_hotelroom'
+room_desc ="You are in what appears to be a hotel room. It's nice, or would be without the scorch marks all over the walls and broken glass
+littering the floors from the shattered windows and mirrors. The bed is made up, but slightly disheveled - almost as if someone lay down on
+top to discretely have a nap. The door to the hotel room has been splintered. It looks as if the digital card lock has exploded"
+room_intro = "The first thing you are aware of before you even open your eyes is an intense ringing in your head. You bring your hands to your ears to try to block out
+the sound, but it does no good. Your hands come away sticky, presumably with blood. You smell smoke. You have no idea of your surroundings and no memory of how you got here."
+room_exits = "[N]"
+room_ifnorth ="You Proceed through an open door to the north"
+>
+	<item name="hands" looklist="y" lookdesc ="Yep. That's blood. That's probably not good.You notice that you are wearing a broken mechanical watch.
+	The display still reads the exact time and date that it stopped: 12:00. You are also wearing a diamond encrusted ring on your left ring finger."/>
+	<item name="surroundings" looklist="n" lookdesc = "You are in what appears to be a hotel room. It's nice, or would be without the scorch marks all over the walls and broken glass littering the floors from the shattered windows and mirrors. The bed is made up, but slightly disheveled – almost as if someone lay down on top to discretely have a nap. The door to the hotel room has been splintered. It looks as if the digital card lock has exploded"/>
+	<item name="windows" looklist="y" lookdesc = "In the early dawn light you see the silhouettes of many skyscrapers. You can tell by the distinctive shape of the World Trade Center twin towers that you are in New York City. All the lights are out in the city. Judging from the colour of the sky, there would be a beautiful sunrise to look at if there weren't a huge black building in the way"/>
+	<item name="black building" looklist="y" lookdesc = "A giant black monolith. You can see the Gore Industries logo on the side. These are the people who make the internet."/>
+	<item name="world trade center" looklist="y" lookdesc = "Built to last"/>
+	<item name="mirrors" looklist="y" lookdesc = "These are totally smashed"/>
+	<item name="digital card lock" looklist="y" lookdesc = "There are only tiny bits of shrapnel remaining embedded in the walls."/>
+	<item name="door" looklist="y" lookdesc = "There really isn't much left"/>
+	<item name="glass" looklist="y" lookdesc="In a large fragment of broken mirror, you catch your reflection. A bed-headed young man in a rumpled dinner jacket. There is unmistakably some lipstick on your shirt collar and crusty drool on your face."/>
+	<item name="bed" looklist="y" uselist="y" lookdesc ="Looking closer at the bed, you notice that there is a small slip of paper in the blankets. It appears to be a coat check ticket"/>
+	<item name="ticket" looklist="y" pickuplist="y" lookdesc="Number 408"/>
 </room>

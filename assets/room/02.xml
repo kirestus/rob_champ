@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<room 	id='02' 
-		room_name = 'The Hallway'
-		instance_name = 'room_hotelroom'
-		room_desc ="The doors to all the other rooms on the floor have suffered the same fate as the one you just passed through. At one end of the hallway is an elevator 
-		and a stairwell, at the other there appears to be a body."
-		room_intro = "The doors to all the other rooms on the floor have suffered the same fate as the one you just passed through. At one end of the hallway is an elevator 
-		and a stairwell, at the other there appears to be a body."
-		room_exits = "S"
-		>
-	<item name="hands" looklist="y"/>
-	<item name="surroundings" looklist="n"/>
-	<item name="windows" looklist="y"/>
-	<item name="black building" looklist="y"/>
-	<item name="world trade center" looklist="y"/>
-	<item name="mirrors" looklist="y"/>
+<room id='02' 
+room_name = 'The Hallway'
+instance_name = 'room_Hallway'
+room_desc ="The doors to all the other rooms on the floor have suffered the same fate as the one you just passed through. At one end of the hallway is an elevator
+and a stairwell, at the other there appears to be a body."
+room_intro = "The doors to all the other rooms on the floor have suffered the same fate as the one you just passed through. At one end of the hallway is an elevator
+and a stairwell, at the other there appears to be a body."
+room_exits = "[S]"
+room_ifsouth ="You go south to the hotel room"
+>
+	<item name="housekeeping cart" looklist="y" lookdesc ="The cart contain various towels."/>
+	<item name="towels" looklist="y" pickuplist="y" lookdesc ="Clean and fluffy. You wonder how many people's' butts these things have touched."/>
+	<item name="body" looklist="y" lookdesc ="It appears to be a hotel employee, possibly a housekeeper or waiter, judging by the uniform. The individual's head has been turned into a bloody pulp – gross! A narrow cable extends from the uniform pocket and lies severed alongside the body."/>
+	<item name="uniform" looklist="y" lookdesc="It's a polyester number in robin's-egg blue."/>
+	<item name="cable" looklist="y" lookdesc="Upon further inspection, the cable seems to be coming from a Sony discman."/>
 	<item name="digital card lock" looklist="y"/>
-	<item name="door" looklist="y"/>
-	<item name="glass" looklist="y"/>
-	<item name="bed" looklist="y"/>
+	<item name="discman" looklist="y" uselist="y" lookdesc="Pretty cool. Too bad it looks like the headphones exploded… It makes you think of a personal Manowar concert for one."/>
+	<item name="elevator" looklist="y" uselist="y" lookdesc="unlike most of the electronics you have encountered, the elevator control panel seems to be in fine working order. There is an up button and a down button."/>
+	<item name="elevator car" looklist="y" uselist="y" lookdesc="it looks clean and safe. There is a panel of buttons on the side wall. There are buttons going up to 58 floors. The lower floors are labelled Lobby (1), Restaurant (2), Ballroom (3), and Parkade (B)."/>
 	<item name="ticket" looklist="y" pickuplist="y"/>
+	<item name="stairwell" uselist="y" looklist="y" lookdesc = "It's a stairwell, seems to still be intact"/>
 </room>

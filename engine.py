@@ -5,7 +5,6 @@ import pickUp
 import inventory
 import TalkTo
 import os
-from xml.etree import ElementTree
 
 #clears the sceen depending on what os the user is running
 def sysclear():
@@ -136,6 +135,11 @@ while rungame == 1:
 	#if you choose 8 the run the UseItem function in the inventory class
 	elif (choice == '8')or(choice == 'USE ITEM'):
 		player.UseItem()
+	
+	#if you choose 8 the run the UseItem function in the inventory class
+	elif (choice == '666')or(choice == 'Hail Satan'):
+		print "Satan Devours your soul"
+		rungame = 0
 	
 	#if player chooses 0 then stop the game loop causing the program to end
 	elif (choice == '0')or (choice == "EXIT"):

@@ -19,11 +19,16 @@ def LoadRoom(filename, roomid, query):
 				if querytrue =='y':
 					result.append(node.attrib.get('name'))
 			return(result)
-#		elif query == 'room_exits':
-#			for node in tree.iter('exits'):
-#				querytrue = node.attrib.get('north','east','south','west')
-#				if querytrue =='y':
-#					result.append(node.attrib.get('name'))
-#			return(result)
+		#this will search the xml file for the room exits and return them
+		elif query == 'room_exits':
+			for node in tree.iter('room'):
+				exits = node.attrib.get('exits')
+				return(exits)
+		#this will return the text blurb you get for going north east south or west
+		elif query == 'room_ifnorth' or query == 'room_ifeast' or query == 'room_ifsouth' or query == 'room_ifwest':
+			for node in tree.iter('room'):
+				exits = node.attrib.get(query)
+				return(exits)
+		#return if failed
 		else:
 			return("not a valid query")
