@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<room 	id='01' 
+		room_name = 'Hotel Room'
+		instance_name = 'room_hotelroom'
+		room_desc ="You are in what appears to be a hotel room. It's nice, or would be without the scorch marks all over the walls and broken glass 
+		littering the floors from the shattered windows and mirrors. The bed is made up, but slightly disheveled - almost as if someone lay down on 
+		top to discretely have a nap. The door to the hotel room has been splintered. It looks as if the digital card lock has exploded"
+		room_intro = "The first thing you are aware of before you even open your eyes is an intense ringing in your head. You bring your hands to your ears to try to block out 
+		the sound, but it does no good. Your hands come away sticky, presumably with blood. You smell smoke. You have no idea of your surroundings and no memory of how you got here."
+		>
+	<exits north ='y' east ='n' south ='n' west = 'n' ifnorth ="You Proceed through an open door to the north"/>
+	<item name="hands" looklist="y"/>
+	<item name="surroundings" looklist="n"/>
+	<item name="windows" looklist="y"/>
+	<item name="black building" looklist="y"/>
+	<item name="world trade center" looklist="y"/>
+	<item name="mirrors" looklist="y"/>
+	<item name="digital card lock" looklist="y"/>
+	<item name="door" looklist="y"/>
+	<item name="glass" looklist="y"/>
+	<item name="bed" looklist="y"/>
+	<item name="ticket" looklist="y" pickuplist="y"/>
+</room>

@@ -5,6 +5,7 @@ import pickUp
 import inventory
 import TalkTo
 import os
+from xml.etree import ElementTree
 
 #clears the sceen depending on what os the user is running
 def sysclear():
@@ -49,17 +50,21 @@ def Beep(number):
 
 #this function will draw the menu for the user	
 def DrawMenu():
-	print "/////////////////////"
-	print "// 1.) Look Around //"
-	print "// 2.) Look At     //"
-	print "// 3.) Use         //"
-	print "// 4.) Talk to     //"
-	print "// 5.) Go to       //"
-	print "// 6.) Pick Up     //"
-	print "// 7.) Inventory   //"
-	print "// 8.) Use Item    //"
-	print "// 0.) Exit        //"
-	print "/////////////////////"
+	str1 = "/////////////////////"
+	str2 = "// 1.) Look Around //"
+	str3 = "// 2.) Look At     //"
+	str4 = "// 3.) Use         //"
+	str5 = "// 4.) Talk to     //"
+	str6 = "// 5.) Go to       //"
+	str7 = "// 6.) Pick Up     //"
+	str8 = "// 7.) Inventory   //"
+	str9 = "// 8.) Use Item    //"
+	str10= "// 0.) Exit        //"
+	str11= "/////////////////////"
+	strlist = [str1,str2,str3,str4,str5,str6,str7,str8,str9,str10,str11]
+	#print all the rows in the center or wherever we decide to put them
+	for i in strlist:
+		print i
 	#Beep(1)
 	
 #this function simply returns the propper room depending on the number it is fed

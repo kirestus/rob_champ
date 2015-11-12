@@ -1,22 +1,29 @@
-#this script will load a room from a text file and parse the valuble data for the engine
-	
-#take the filename roomid and a search query
+from xml.etree import ElementTree
+
+
 def LoadRoom(filename, roomid, query):
-	#open the filename you passed when calling the function
-	txt = open(filename)
-	for line in txt:
-		if query in line:
-			#this splits the line after the = so that we can just take the values we need
-			result = line.split('= ',1)[1]
-			resultList = result.split('^')
-			resultListItems = []
-			for i in resultList:
-				resultListItems.append(i);
-			if len(resultListItems)>1:
-				return resultListItems
-			else:
-				return result
-	return ("nul")
-	
-
-
+#	open the filename you passed when calling the function
+	with open(filename, 'r') as f:
+		tree = ElementTree.parse(f)
+		#if the query is for a room atribute such as name
+		if query == 'room_name' or query == 'room_id' or query == 'room_id' or query == 'room_desc' or query == 'room_intro' or query == 'room_exits':
+			for node in tree.iter('room'):
+				result = node.attrib.get(query)
+				return(result)
+			return ('failstate')
+		#else if the query is for a room item object
+		elif query == 'looklist' or query == 'uselist' or query == 'pickuplist':
+			result = []
+			for node in tree.iter('item'):
+				querytrue = node.attrib.get(query)
+				if querytrue =='y':
+					result.append(node.attrib.get('name'))
+			return(result)
+#		elif query == 'room_exits':
+#			for node in tree.iter('exits'):
+#				querytrue = node.attrib.get('north','east','south','west')
+#				if querytrue =='y':
+#					result.append(node.attrib.get('name'))
+#			return(result)
+		else:
+			return("not a valid query")

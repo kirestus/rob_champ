@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<room 	id='02' 
+		room_name = 'The Hallway'
+		instance_name = 'room_hotelroom'
+		room_desc ="The doors to all the other rooms on the floor have suffered the same fate as the one you just passed through. At one end of the hallway is an elevator 
+		and a stairwell, at the other there appears to be a body."
+		room_intro = "The doors to all the other rooms on the floor have suffered the same fate as the one you just passed through. At one end of the hallway is an elevator 
+		and a stairwell, at the other there appears to be a body."
+		room_exits = "S"
+		>
+	<item name="hands" looklist="y"/>
+	<item name="surroundings" looklist="n"/>
+	<item name="windows" looklist="y"/>
+	<item name="black building" looklist="y"/>
+	<item name="world trade center" looklist="y"/>
+	<item name="mirrors" looklist="y"/>
+	<item name="digital card lock" looklist="y"/>
+	<item name="door" looklist="y"/>
+	<item name="glass" looklist="y"/>
+	<item name="bed" looklist="y"/>
+	<item name="ticket" looklist="y" pickuplist="y"/>
+</room>
